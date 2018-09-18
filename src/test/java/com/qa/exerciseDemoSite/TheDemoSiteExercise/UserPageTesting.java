@@ -13,6 +13,7 @@ public class UserPageTesting {
 
 	WebDriver driver = null; 
 	private String str = "http://thedemosite.co.uk/addauser.php"; 
+	private String url = "http://thedemosite.co.uk/login.php";
 	
 	@Before
 	public void setUp()
@@ -28,9 +29,12 @@ public class UserPageTesting {
 		driver.get(str);
 		UserPage page = PageFactory.initElements(driver, UserPage.class);
 		page.createUser("Henrie", "Hoover");
-	//NEED TO MAKE A NEW METHOD FOR IT TO DO ALL 3 THEN DO IT	
-	//	assertEquals("username", "Henrie" , page.checkUsername.getText()); 
 		assertTrue("User Has Not Been Created", page.checkUser()); 
+		
+		driver.get(url);
+		LogPage pageL = PageFactory.initElements(driver, LogPage.class);
+		pageL.checkLog();
+		assertEquals("**Login Not Successful**", "**Successful Login**", pageL.getStatus().getText());
 	}
 	
 	

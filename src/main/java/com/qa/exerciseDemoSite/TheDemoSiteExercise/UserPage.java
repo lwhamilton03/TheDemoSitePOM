@@ -21,8 +21,7 @@ public class UserPage {
 		sub.submit();
 	}
 	
-//	@FindBy(xpath = "/html/body/table/tbody/tr/td[1]/blockquote/blockquote[2]/blockquote/text()[1]")
-//	private WebElement checkUsername;
+
 	
 	@FindBy(xpath = "/html/body/table/tbody/tr/td[1]/blockquote/blockquote[2]/blockquote")
 	private WebElement userCheck; 
